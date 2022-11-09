@@ -20,7 +20,6 @@ public class ShopController {
     @PostMapping(value = "/shop")
     @ResponseStatus(HttpStatus.CREATED)
     public Shop addShop(@RequestBody Shop shop) {
-        System.out.println("Add");
         return shopService.addShop(shop);
     }
 
@@ -30,9 +29,9 @@ public class ShopController {
     }
 
     @DeleteMapping(value = "/shop")
-    public void deleteSh(@RequestParam Integer id) {
+    public void deleteSh(@RequestParam Integer shopId) {
         System.out.println("Delete");
-        shopService.deleteShop(id);
+        shopService.deleteShop(shopId);
     }
 
     @GetMapping(value = "/shop/all")
@@ -42,8 +41,8 @@ public class ShopController {
 
     @PostMapping(value = "/shop/update/{id}")
     @ResponseStatus(HttpStatus.CREATED)
-    public Shop update(@PathVariable int id, @RequestBody Shop shop) {
-        return shopService.update(id, shop);
+    public Shop update(@PathVariable int shopId, @RequestBody Shop shop) {
+        return shopService.update(shopId, shop);
     }
 
 }
